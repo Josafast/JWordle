@@ -4,7 +4,7 @@ let wordle;
 
 class Wordle {
 	constructor(){
-		fetch("http://random-word-api.herokuapp.com/word?lang=es&length=5",{method: 'GET'}).then(res=>res.json()).then(res=>{
+		fetch("http://random-word-api.herokuapp.com/word?lang=es&length=5",{method: 'GET', referrerPolicy: 'unsafe-url'}).then(res=>res.json()).then(res=>{
 			this.word = res[0].toUpperCase();
 			console.log(this.word);
 			this.attemps = [(this.word.length <=5 ? 5 : this.word.length+1),this.word.length];
