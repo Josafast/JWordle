@@ -4,8 +4,8 @@ let wordle;
 
 class Wordle {
 	constructor(){
-		fetch("./words",{method: 'GET'}).then(res=>res.text()).then(res=>{
-			this.word = res.toUpperCase();
+		fetch("http://random-word-api.herokuapp.com/word?lang=es&length=5",{method: 'GET'}).then(res=>res.json()).then(res=>{
+			this.word = res[0].toUpperCase();
 			console.log(this.word);
 			this.attemps = [(this.word.length <=5 ? 5 : this.word.length+1),this.word.length];
 			this.wordAttemps;
@@ -23,7 +23,7 @@ class Wordle {
 		div.classList.add("wordle__message");
 		let close = document.createElement("SPAN");
 		let img = document.createElement("IMG");
-		img.setAttribute("src","img/svg/close.svg");
+		img.setAttribute("src","./src/img/svg/close.svg");
 		close.appendChild(img);
 		close.classList.add("icon");
 		close.classList.add("close-message");
@@ -170,7 +170,7 @@ class Wordle {
 			close.classList.add("icon");
 			close.classList.add("close-help");
 			let img = document.createElement("IMG");
-			img.setAttribute("src","img/svg/close.svg");
+			img.setAttribute("src","./src/img/svg/close.svg");
 			close.appendChild(img);
 
 			let title = document.createElement("H1");
@@ -254,7 +254,7 @@ class Wordle {
 
 			let close = document.createElement("SPAN");
 			let img = document.createElement("IMG");
-			img.setAttribute("src","img/svg/close.svg");
+			img.setAttribute("src","./src/img/svg/close.svg");
 			close.classList.add("icon");
 			close.classList.add("close-menu");
 			close.appendChild(img);
@@ -275,39 +275,39 @@ class Wordle {
 					if (i == 1){
 						if (j == 0){
 							span.classList.add("daltonic-mode");
-							img.setAttribute("src","img/svg/checkmark-sharp.svg");
+							img.setAttribute("src","./src/img/svg/checkmark-sharp.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						}	
 					} else if (i == 0){
 						if (j == 0){
 							span.classList.add("moon");
-							img.setAttribute("src","img/svg/moon-outline.svg");
+							img.setAttribute("src","./src/img/svg/moon-outline.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						} else if (j == 1){
 							span.classList.add("sun");
-							img.setAttribute("src","img/svg/sunny-outline.svg");
+							img.setAttribute("src","./src/img/svg/sunny-outline.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						}
 					} else if (i == 2){
 						if (j == 0){
 							span.classList.add("fullscreen-off");
-							img.setAttribute("src","img/svg/expand-outline.svg");
+							img.setAttribute("src","./src/img/svg/expand-outline.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						} else if (j == 1){
 							span.classList.add("fullscreen-on");
 							span.classList.add("d-none");
-							img.setAttribute("src","img/svg/contract-outline.svg");
+							img.setAttribute("src","./src/img/svg/contract-outline.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						}
 					} else if (i == 3){
 						if (j == 0){
 							span.classList.add("credits");
-							img.setAttribute('src',"img/svg/information-outline.svg");
+							img.setAttribute('src',"./src/img/svg/information-outline.svg");
 							span.appendChild(img);
 							button.appendChild(span);
 						}
@@ -338,14 +338,14 @@ class Wordle {
 
 			let close = document.createElement("SPAN");
 			let img = document.createElement("IMG");
-			img.setAttribute("src","img/svg/close.svg");
+			img.setAttribute("src","./src/img/svg/close.svg");
 			close.classList.add("icon");
 			close.classList.add("close-credits");
 			close.appendChild(img);
 
 			let Back = document.createElement("SPAN");
 			img = document.createElement("IMG");
-			img.setAttribute("src","img/svg/arrow-back.svg");
+			img.setAttribute("src","./src/img/svg/arrow-back.svg");
 			Back.classList.add("icon");
 			Back.classList.add("back-to-menu");
 			Back.appendChild(img);
